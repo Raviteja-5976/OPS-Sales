@@ -44,6 +44,7 @@ Deferred, as the plan specifies: HubSpot/Salesforce sync, Google and Microsoft c
    - Authentication → URL Configuration: set **Site URL** to your app URL.
    - Add `http://localhost:3000/auth/callback` and `https://<your-amplify-domain>/auth/callback` to **Redirect URLs**.
    - Email confirmation can stay on. Users confirm and are then sent to onboarding.
+   - **Google sign-in (optional):** in Google Cloud Console create an OAuth client (type *Web application*) and add `https://<project-ref>.supabase.co/auth/v1/callback` as an authorized redirect URI. Then in Supabase → Authentication → Sign In / Providers → Google, enable it and paste the client ID and secret. New Google users land on onboarding automatically.
 3. **Environment:** `cp .env.example .env.local`, then fill in `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `OPENAI_API_KEY` and `NEXT_PUBLIC_SITE_URL`.
 4. Run `npm install` and then `npm run dev`. Open http://localhost:3000, sign up, create your org and add a product.
 
